@@ -1,20 +1,25 @@
 package com.once;
 
-import static org.junit.Assert.assertTrue;
 
-import org.junit.Test;
+import org.junit.jupiter.api.DisplayNameGeneration;
+import org.junit.jupiter.api.DisplayNameGenerator;
+import org.junit.jupiter.api.Tag;
+import org.junit.jupiter.api.Test;
 
-/**
- * Unit test for simple App.
- */
-public class AppTest 
-{
-    /**
-     * Rigorous Test :-)
-     */
-    @Test
-    public void shouldAnswerWithTrue()
-    {
-        assertTrue( true );
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertTrue;
+
+@Tag("app")
+public class AppTest {
+
+    @FastTest
+    public void fastTest() {
+        assertTrue("abc".contains("a"));
     }
+
+    @FastTest
+    public void fastTestEquals() {
+        assertEquals(2, 2);
+    }
+
 }
