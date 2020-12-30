@@ -2,23 +2,25 @@ package com.once;
 
 import org.junit.jupiter.api.Nested;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.TestInstance;
 import org.junit.jupiter.api.condition.*;
 
 public class ConditionsDemo {
 
     @Nested
+    @TestInstance(TestInstance.Lifecycle.PER_METHOD)
     class OperationSystemConditionsDemo {
 
         @Test
         @EnabledOnOs(OS.WINDOWS)
         void testOnWind() {
-            System.out.println("windows system");
+            System.out.println("windows system: " + this);
         }
 
         @Test
-        @EnabledOnOs({OS.LINUX, OS.MAC, OS.SOLARIS})
+        @DisabledOnOs({OS.LINUX, OS.MAC, OS.SOLARIS})
         void testNotOnWind() {
-            System.out.println("unix system");
+            System.out.println("unix system: " + this);
         }
 
     }
