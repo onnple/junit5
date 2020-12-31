@@ -31,6 +31,4 @@ public class DIDemo {
         testReporter.publishEntry(p);
     }
 
-
-
 }
